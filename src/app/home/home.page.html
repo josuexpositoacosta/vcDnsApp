@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Servidor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div>
+  <ion-item>
+    <ion-label position="floating">URL Oficial</ion-label>
+    <ion-input  [(ngModel)]="sitio"  name="sitio"    required (ionInput)="onSitioChange()" >
+    </ion-input> 
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">token</ion-label>
+    <ion-input  [(ngModel)]="token" type="password" name="token" [disabled] = "!isTokenEnabled" required (ionInput)="onTokenChange()">
+    </ion-input> 
+  </ion-item>
+
+</div>   
+  
+  <div>
+    <ion-item>
+      <ion-label position="floating">Id Usuario</ion-label>
+      <ion-input  [(ngModel)]="user"  name="user"  [disabled]="!isUserEnabled"  required (ionInput)="searchUser()">
+      </ion-input> 
+    </ion-item>
+
+    <div *ngIf="errorMessage" style="color:red;">{{ errorMessage }}</div>
+
+    <!-- Mostrar IP solo si tiene valor -->
+    <ion-item *ngIf="ip !== null">
+      <ion-label>IP del Servidor</ion-label>
+      <ion-input [(ngModel)]="ip" name="ip" disabled></ion-input>
+    </ion-item>
+
+    <!-- Mostrar Host solo si tiene valor -->
+    <ion-item *ngIf="host !== null">
+      <ion-label>Host del Servidor</ion-label>
+      <ion-input [(ngModel)]="host" name="host" disabled></ion-input>
+    </ion-item>
+
+    
+    <!--ion-button expand="full" (click)="openHost()" *ngIf="host !== null">Abrir Host</ion-button-->
+    
+    <div *ngIf="message">{{ message }}</div> <!-- Mensaje de estado -->
+    
+    <!--ion-button expand="full" (click)="navigateToRegister()">Registrar Nuevo</ion-button-->
+    
+  </div>
+
+</ion-content>  

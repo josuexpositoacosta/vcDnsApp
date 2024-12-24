@@ -1,0 +1,7 @@
+{
+  "name": "vcDnsApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
